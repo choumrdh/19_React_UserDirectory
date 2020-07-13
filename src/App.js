@@ -1,12 +1,16 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
+import Jumbotron from './components/jumbotron/Jumbotron';
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Container>
+      <Jumbotron/>
+    </Container>
+    
+    
   );
 }
 
