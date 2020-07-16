@@ -5,7 +5,7 @@ function Navbar(){
         <div className="navbar navbar-light bg-light">
             <a className="navbar-brand" href="/">Home</a>
             <form className="form-inline">
-            <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+            <input className="form-control mr-sm-2" type="search" placeholder="Sort by " aria-label="Search"/>
             </form>
         </div>
     )
