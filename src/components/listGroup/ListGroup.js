@@ -14,16 +14,7 @@ class ListGroup extends React.Component {
   randomUserSearch = async () => {
     try {
       const result = await axios.get(this.BASEURL);
-      this.setState({results:result.data.results});
-
-      console.log(result);
-      console.log(result.data.results[0].picture.large);
-      console.log(result.data.results[0].name.last);
-      console.log(result.data.results[0].name.first);
-      console.log(result.data.results[0].cell);
-      console.log(result.data.results[0].email);
-      console.log(result.data.results[0].dob.date);
-      
+      this.setState({ searchResults: result.data.results });
     } catch (error) {
       console.log(error);
     }
@@ -33,21 +24,41 @@ class ListGroup extends React.Component {
     this.randomUserSearch();
   }
 
+  getDate = (dob) => {
+    const dateOfBirth = new Date(dob);
+    const month = dateOfBirth.getMonth() + 1;
+    const date = dateOfBirth.getDate();
+    const year = dateOfBirth.getFullYear();
+    return `${month}/${date}/${year}`;
+  };
 
+  filterByName = () => {
+    const {searchResults} = this.state;
+    const {searchWord} = this.props;
+    if (searchWord === ""){
+      return searchResults
+    }
+    return searchResults.filter((user)=>{
+      console.log(user.name.first)
+      return user.name.first.toLowerCase().includes(searchWord.toLowerCase()) || user.name.last.toLowerCase().includes(searchWord.toLowerCase())
+    })
+    
+  };
+  
   render() {
     return (
       <div>
         <ListHeader></ListHeader>
-        {this.state.searchResults.map((user) => (
+        {this.filterByName().map((user, index) => (
           <ListElement
-            id={user.data.results.id.value}
-            key={user.id.value}
-            image={user.data.results.picture.medium}
+            id={user.id.value}
+            key={index}
+            image={user.picture.medium}
             firstName={user.name.first}
-            lastName = {user.name.last}
-            phone ={user.cell}
+            lastName={user.name.last}
+            phone={user.cell}
             email={user.email}
-            dob={user.dob.date}
+            dob={this.getDate(user.dob.date)}
           />
         ))}
       </div>
