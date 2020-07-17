@@ -8,9 +8,10 @@ class ListGroup extends React.Component {
     super(props);
     this.state = {
       searchResults: [],
+      isSortByName: false,
     };
-    this.BASEURL = "https://randomuser.me/api/?results=20&nat=us";
-  }
+    this.BASEURL = "https://randomuser.me/api/?results=30&nat=us";
+  };
   randomUserSearch = async () => {
     try {
       const result = await axios.get(this.BASEURL);
@@ -22,7 +23,7 @@ class ListGroup extends React.Component {
 
   componentDidMount() {
     this.randomUserSearch();
-  }
+  };
 
   getDate = (dob) => {
     const dateOfBirth = new Date(dob);
@@ -36,22 +37,38 @@ class ListGroup extends React.Component {
     const { searchResults } = this.state;
     const { searchWord } = this.props;
     if (searchWord === "") {
-      return searchResults;
+      return [...searchResults];
     }
     return searchResults.filter((user) => {
-      console.log(user.name.first);
       return (
         user.name.first.toLowerCase().includes(searchWord.toLowerCase()) ||
         user.name.last.toLowerCase().includes(searchWord.toLowerCase())
       );
     });
+   
+     
+  };
+
+  sortbyName = (filteredResult) => {
+    return filteredResult.sort((userA, userB) => {
+      const userAName = `${userA.name.first.toLowerCase()} ${userA.name.last.toLowerCase()}`;
+      const userBName = `${userB.name.first.toLowerCase()} ${userB.name.last.toLowerCase()}`;
+      return userAName > userBName ?1:-1;
+    });
   };
 
   render() {
+   let filteredResult = this.filterByName();
+   if (this.state.isSortByName){
+     
+     filteredResult = this.sortbyName(filteredResult);
+   
+   } ;
+   
     return (
       <div>
-        <ListHeader></ListHeader>
-        {this.filterByName().map((user, index) => (
+        <ListHeader onNameClick={()=>{this.setState({isSortByName:!this.state.isSortByName})}}></ListHeader>
+        {filteredResult.map((user, index) => (
           <ListElement
             id={user.id.value}
             key={index}
