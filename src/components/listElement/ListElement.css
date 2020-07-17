@@ -5,8 +5,20 @@ img {
   margin: 0 auto 10px;
 }
 
-p {
-  font-family: 'Times New Roman', Times, serif;
+li {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 25px;
   
+}
+ul {
+  list-style-type: none;
+}
+
+.hero{
+  background-image: url("https://thepaddlemag.co.za/wp-content/uploads/2017/03/blubackground.jpg");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
 }

@@ -10,7 +10,7 @@ class ListGroup extends React.Component {
       searchResults: [],
       isSortByName: false,
     };
-    this.BASEURL = "https://randomuser.me/api/?results=30&nat=us";
+    this.BASEURL = "https://randomuser.me/api/?results=50&nat=us";
   };
   randomUserSearch = async () => {
     try {
@@ -66,7 +66,7 @@ class ListGroup extends React.Component {
    } ;
    
     return (
-      <div>
+      <div className="hero">
         <ListHeader onNameClick={()=>{this.setState({isSortByName:!this.state.isSortByName})}}></ListHeader>
         {filteredResult.map((user, index) => (
           <ListElement

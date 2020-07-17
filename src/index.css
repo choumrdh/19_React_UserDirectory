@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/649/728/955/illustration-simple-simple-background-night-wallpaper-preview.jpg");
+  background-color: #cccccc;
 }
 
 code {
