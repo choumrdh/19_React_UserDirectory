@@ -1,7 +1,12 @@
+
 .App {
   text-align: center;
+  
 }
-
+.App-body {
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/649/728/955/illustration-simple-simple-background-night-wallpaper-preview.jpg");
+  background-color: #cccccc;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

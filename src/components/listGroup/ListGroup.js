@@ -33,18 +33,20 @@ class ListGroup extends React.Component {
   };
 
   filterByName = () => {
-    const {searchResults} = this.state;
-    const {searchWord} = this.props;
-    if (searchWord === ""){
-      return searchResults
+    const { searchResults } = this.state;
+    const { searchWord } = this.props;
+    if (searchWord === "") {
+      return searchResults;
     }
-    return searchResults.filter((user)=>{
-      console.log(user.name.first)
-      return user.name.first.toLowerCase().includes(searchWord.toLowerCase()) || user.name.last.toLowerCase().includes(searchWord.toLowerCase())
-    })
-    
+    return searchResults.filter((user) => {
+      console.log(user.name.first);
+      return (
+        user.name.first.toLowerCase().includes(searchWord.toLowerCase()) ||
+        user.name.last.toLowerCase().includes(searchWord.toLowerCase())
+      );
+    });
   };
-  
+
   render() {
     return (
       <div>
@@ -53,7 +55,7 @@ class ListGroup extends React.Component {
           <ListElement
             id={user.id.value}
             key={index}
-            image={user.picture.medium}
+            image={user.picture.large}
             firstName={user.name.first}
             lastName={user.name.last}
             phone={user.cell}
