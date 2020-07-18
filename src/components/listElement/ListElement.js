@@ -13,7 +13,7 @@ const ListElement = (props) => {
 
         <li className="col-sm-2 col-md-2 col-lg-2">{props.firstName} {props.lastName}</li>
         <li className="col-sm-3 col-md-3 col-lg-3">{props.phone}</li>
-        <li className="col-sm-3 col-md-3 col-lg-3">{props.email}</li>
+        <li className="col-sm-3 col-md-3 col-lg-3"><a href={"mailto:" + props.email}>{props.email}</a></li>
         <li className="col-sm-2 col-md-2 col-lg-2">{props.dob}</li>
       </ul>
     </div>
