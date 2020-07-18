@@ -1,5 +1,6 @@
 # Project Title: 19_React_UserDirectory :raised_hands:
   - create a employee directory with React. This assignment will require you to break up your application's UI into components, manage component state, and respond to user events.:bulb: 
+  - [Deployed Link](https://choumrdh.github.io/19_React_UserDirectory/)
 
 ## Table of Contents:
   - [User Story](#user-story-speech_balloon)
@@ -9,6 +10,7 @@
     - [Name](#author-bust_in_silhouette)
     - [GitHub](#author-bust_in_silhouette)
     - [Email](#author-bust_in_silhouette)
+    - [Deployment](#author-bust_in_silhouette)
   - [License](#license-trophy)
   
   ### User Story :speech_balloon:
@@ -46,7 +48,7 @@
   
   > - GitHub: [choumrdh](https://github.com/choumrdh)
   > - email: m.w.chou21@gmail.com
-  >  
+  > - Deployed Link: [Click](https://choumrdh.github.io/19_React_UserDirectory/)
   
  ### License :trophy:
    - ![License](https://img.shields.io/badge/License-MIT-blue)
